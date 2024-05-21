@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taller_29_mayo_front/app/view/home/dialogs/mod_task.dart';
+import 'package:taller_29_mayo_front/app/view/home/dialogs/config_task.dart';
 
 class MyTask extends StatelessWidget {
   const MyTask({super.key});
@@ -8,7 +8,7 @@ class MyTask extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        modTaskDialog(context);
+          configTaskDialog(context, true);
       },
       child: Material(
         elevation: 5.0,
@@ -63,6 +63,6 @@ class MyTask extends StatelessWidget {
   }
 
   Widget deleteButton() {
-    return Icon(Icons.delete, size: 20);
+    return const Icon(Icons.delete, size: 20);
   }
 }

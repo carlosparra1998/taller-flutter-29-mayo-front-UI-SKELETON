@@ -4,7 +4,8 @@ class MyButton extends StatelessWidget {
   final String? label;
   final Function? onPressed;
   final bool containsBorder;
-  const MyButton({super.key, this.label, this.onPressed, this.containsBorder= true});
+  const MyButton(
+      {super.key, this.label, this.onPressed, this.containsBorder = true});
 
   @override
   Widget build(BuildContext context) {
@@ -13,11 +14,18 @@ class MyButton extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: containsBorder ? BorderRadius.circular(20) : null,
-          border: containsBorder ? Border.all(color: Colors.black, width: 3) : null,
+          border:
+              containsBorder ? Border.all(color: Colors.black, width: 3) : null,
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 10),
-          child: Text(label ?? '', style: TextStyle(fontSize: 18),),
+          padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 15),
+          child: Text(
+            label ?? '',
+            style: TextStyle(
+              fontSize: 18,
+              decoration: containsBorder ? null : TextDecoration.underline,
+            ),
+          ),
         ),
       ),
     );

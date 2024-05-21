@@ -13,10 +13,10 @@ class _RegisterViewState extends State<RegisterView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
-        title: Text('Registro'),
+        title: const Text('Registro'),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 7.0),
@@ -24,14 +24,24 @@ class _RegisterViewState extends State<RegisterView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('Únete a nuestro gran servicio', style: TextStyle(fontSize: 20)),
-              SizedBox(height: 40),
+              const Text(
+                'Únete a nuestro gran servicio para gestionar tus tareas',
+                style: TextStyle(fontSize: 20),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 40),
               MyTextField(labelText: 'Usuario'),
-              SizedBox(height: 20),
-              MyTextField(labelText: 'Contraseña'),
-              SizedBox(height: 20),
-              MyTextField(labelText: 'Repite la contraseña'),
-              SizedBox(height: 30),
+              const SizedBox(height: 20),
+              MyTextField(
+                labelText: 'Contraseña',
+                passwordMode: true,
+              ),
+              const SizedBox(height: 20),
+              MyTextField(
+                labelText: 'Repite la contraseña',
+                passwordMode: true,
+              ),
+              const SizedBox(height: 30),
               MyButton(label: 'Registro'),
             ],
           ),
