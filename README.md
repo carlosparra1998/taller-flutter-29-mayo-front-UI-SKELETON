@@ -1,4 +1,4 @@
-# TODO LIST - FRONT (Solo el equeleto UI)
+# TODO LIST - FRONT (Solo el esqueleto UI)
 
 
 ## **Objetivo**
