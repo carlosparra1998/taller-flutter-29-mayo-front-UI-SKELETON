@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taller_29_mayo_front/app/utils/get_color_from_key.dart';
 import 'package:taller_29_mayo_front/app/view/home/dialogs/config_task.dart';
 
 class MyTask extends StatelessWidget {
@@ -8,7 +9,7 @@ class MyTask extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-          configTaskDialog(context, true);
+        configTaskDialog(context, true);
       },
       child: Material(
         elevation: 5.0,
@@ -21,21 +22,23 @@ class MyTask extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(right: 15.0),
-                child: circleButton(),
+                child: circleButton(context, "blue"),
               ),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'My task',
-                      style: TextStyle(fontSize: 15),
+                      'title',
+                      style: const TextStyle(fontSize: 15),
                       textAlign: TextAlign.left,
                     ),
                     Text(
-                      'My desc',
+                      'descr',
                       style: TextStyle(
-                          fontSize: 12, color: Colors.black.withOpacity(0.7)),
+                        fontSize: 12,
+                        color: Colors.black.withOpacity(0.7),
+                      ),
                       textAlign: TextAlign.left,
                     ),
                   ],
@@ -43,7 +46,7 @@ class MyTask extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 15.0),
-                child: deleteButton(),
+                child: deleteButton(context),
               ),
             ],
           ),
@@ -52,17 +55,29 @@ class MyTask extends StatelessWidget {
     );
   }
 
-  Widget circleButton() {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(width: 2),
-        shape: BoxShape.circle,
+  Widget circleButton(BuildContext context, String? taskColor) {
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            width: 2,
+            color: getColorFromKey(taskColor) ?? const Color(0xFF000000),
+          ),
+          shape: BoxShape.circle,
+        ),
+        child: Icon(
+          false ? null : Icons.check,
+          color: getColorFromKey(taskColor),
+        ),
       ),
-      child: Icon(Icons.check),
     );
   }
 
-  Widget deleteButton() {
-    return const Icon(Icons.delete, size: 20);
+  Widget deleteButton(BuildContext context) {
+    return GestureDetector(
+      onTap: () {},
+      child: const Icon(Icons.delete, size: 20),
+    );
   }
 }

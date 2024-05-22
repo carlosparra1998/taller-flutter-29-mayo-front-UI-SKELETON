@@ -12,6 +12,11 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -24,13 +29,17 @@ class _HomeViewState extends State<HomeView> {
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 12),
         child: SingleChildScrollView(
           child: Column(
-            children: List.generate(
-              14,
-              (index) => Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: MyTask(),
-              ),
-            ),
+            children: false
+                ? [emptyMessage()]
+                : [
+                    ...List.generate(
+                      5,
+                      (index) => Padding(
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: MyTask(),
+                      ),
+                    ),
+                  ],
           ),
         ),
       ),
